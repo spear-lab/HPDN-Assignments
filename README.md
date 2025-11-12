@@ -13,16 +13,18 @@ the VM.
 
 1.  Use a virtualization software, such as VirtualBox
     (<https://www.virtualbox.org/>) to install the **Ubuntu 24.04.3**
-    ISO. If you use an x86 system, you can use the following download
+    ISO.
+
+    For `x86`, you can use the following download
     link:\
     <https://ubuntu.com/download/desktop/thank-you?version=24.04.3&architecture=amd64&lts=true>\
-    If you use an ARM system (e.g., Mac with M\* CPU), you can download
+    For `ARM` (e.g., Mac with M\* CPU), you can download
     the ARM ISO from
     <https://cdimage.ubuntu.com/noble/daily-live/current/> via this
     download link:
     <https://cdimage.ubuntu.com/noble/daily-live/current/noble-desktop-arm64.iso>
 
-2.  In the VM, open a terminal `(CTRL+ALT+T)`, and use the commands below.
+3.  In the VM, open a terminal `(CTRL+ALT+T)`, and use the commands below.
 
     ``` bash
     sudo apt update && sudo apt upgrade  
@@ -35,7 +37,7 @@ the VM.
 1.  We will now install P4, which is required for the second assignment.
     The P4 installation script automatically installs all dependencies,
     including mininet, which is used in the first assignment. Note that
-    this installation process usually takes several hours.
+    this installation process may take several hours.
 
     ``` bash
     git clone https://github.com/jafingerhut/p4-guide.git
@@ -43,11 +45,11 @@ the VM.
     ./install-p4dev-v9.sh                                          
     ```
 
+    The installation script will create a virtual environment with the necessary toolset.
     After it has been installed, we can activate a virtual environment
-    (venv) to run our P4 related programs. If you want to install
+    (venv) to run our P4-related programs. If you want to install
     packages for your project through `pip install`, do it in the
-    virtual environment. To get out of a virtual environment, simply
-    issue the command `deactivate`.
+    virtual environment. You can use `deactivate` to exit the venv.
 
     ``` bash
     source ~/p4-guide/bin/p4dev-python-venv/bin/activate
@@ -55,7 +57,7 @@ the VM.
     ```
 
     To verify that P4 has been successfully installed, run the basic forwarding example from the tutorials folder within the P4 virtual environment.
-    If everything works correctly, you should end up with mininet running. Simply exit mininet using `CTRL+D`.
+    If everything works correctly, you should end up with mininet running. Exit mininet using `CTRL+D` or `exit`.
 
     ``` bash
     cd ~/p4-guide/bin/tutorials/exercises/basic
@@ -91,7 +93,7 @@ in which we will run Python 3.9.19.
     ```
 
     If everything worked, `pyenv –version` should show `pyenv 2.6.12`,
-    and we can install python 3.9.19.
+    then we can install Python 3.9.19.
 
     ``` bash
     pyenv install 3.9.19
