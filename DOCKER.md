@@ -1,7 +1,7 @@
 
 # Docker Setup (environment/docker)
 
-> **Note:** This Docker environment was tested on Arch Linux (kernel 6.17.7). Paths, package names, and permissions may differ on other systems. Adjust as needed.
+> **Note:** This Docker environment was tested on Arch Linux (kernel 6.17.7). Paths, package names, and permissions may vary on other systems, so adjust as needed. There is no guarantee that it will work unchanged for all assignments.
 
 This folder provides a complete Docker/development environment for the project.
 
@@ -30,10 +30,10 @@ cd environment
 
 ## Quick Start
 
-The recommended way to use the environment is via:
+The recommended way to use the environment is via the script located at:
 
 ```
-./docker/run_docker.sh
+./environment/docker/run_docker.sh
 ```
 
 Make it executable once:
@@ -45,6 +45,10 @@ chmod +x docker/run_docker.sh
 ### Common commands
 
 ```bash
+# Build → up → shell
+# Most commonly used
+./docker/run_docker.sh -bu
+
 # Build with cache
 ./docker/run_docker.sh -b
 
@@ -56,9 +60,6 @@ chmod +x docker/run_docker.sh
 
 # Clean up containers
 ./docker/run_docker.sh -c
-
-# Build → up → shell
-./docker/run_docker.sh -bu
 ```
 
 ---
@@ -72,11 +73,15 @@ The entrypoint installs an `mn()` shell helper to launch Mininet with:
 * remote controller at **127.0.0.1:6633**
 * OpenFlow **1.3**
 
+Feel free to change the shell helper which can be found under `~/.bashrc` inside the container to your needs.
+
 Usage (inside container):
 
 ```bash
 mn
 ```
+
+You may still use mininet normally by calling it using `sudo mn <arguments>`.
 
 ### Ryu Controller
 
@@ -105,4 +110,4 @@ docker exec -it <container> bash
 
 ## Notes
 
-This Docker setup is intended for local development and experimentation. It is not a production deployment.
+This Docker setup is intended for local development and experimentation.
