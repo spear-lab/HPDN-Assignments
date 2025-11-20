@@ -1,4 +1,40 @@
+
 # Assignment Setup Installation Guide
+
+## Docker Environment (Alternative to VM)
+
+If you prefer not to set up a VM, you can use the provided Docker environment for local development and experimentation. This setup is defined in `environment/docker` and includes all necessary tools (Mininet, Ryu, Wireshark, etc.).
+
+**Tested on Arch Linux (kernel 6.17.7). Paths and package names may differ on other systems.**
+
+### Quick Start
+
+1. Install Docker and Docker Compose on your system.
+2. Open a terminal and navigate to the `environment` directory:
+
+    ```bash
+    cd environment
+    ```
+
+3. Make the helper script executable (once):
+
+    ```bash
+    chmod +x docker/run_docker.sh
+    ```
+
+4. Build and start the environment, then open a shell in the main container:
+
+    ```bash
+    ./docker/run_docker.sh -bu
+    ```
+
+5. Use the `mn` command inside the container to launch Mininet, or run Ryu on your host using:
+
+    ```bash
+    bash environment/start_ryu.sh
+    ```
+
+See `DOCKER.md` for full details, troubleshooting, and advanced usage.
 
 ## VM
 
