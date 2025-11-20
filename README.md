@@ -35,6 +35,8 @@ the VM.
         git vim python3-venv python3-pip
     ```
 
+> If you are using Macbook with ARM processor, you may run into problems. The issue and possible fix is documented [here](https://github.com/spear-lab/HPDN-Assignments/issues/2#issue-3648485814).
+
 ## Mininet and P4
 
 1.  We will now install P4, which is required for the second assignment.
