@@ -135,8 +135,10 @@ class P4Switch(Switch):
             args.append("--debugger")
         if self.log_console:
             args.append("--log-console")
-        info(' '.join(args) + "\n")
 
+        args.append("-- --priority-queues 8")
+        info(' '.join(args) + "\n")
+        print("Starting P4 switch {} with command:\n{}".format(self.name, ' '.join(args)))
         pid = None
         with tempfile.NamedTemporaryFile() as f:
             # self.cmd(' '.join(args) + ' > /dev/null 2>&1 &')

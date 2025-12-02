@@ -11,7 +11,7 @@
     },
     "switches": {
         "s1": {
-            "runtime_json": "MyTopo/s1-runtime.json"
+            "cli_input": "MyTopo/s1-runtime.txt"
         }
     },
     "links": [
