@@ -34,6 +34,7 @@ from mininet.topo import Topo
 from p4_mininet import P4Host, P4Switch
 from p4runtime_switch import P4RuntimeSwitch
 
+next_thrift_port = 9090
 
 def configureP4Switch(**switch_args):
     """ Helper class that is called by mininet to initialize
@@ -53,12 +54,11 @@ def configureP4Switch(**switch_args):
         return ConfiguredP4RuntimeSwitch
     else:
         class ConfiguredP4Switch(P4Switch):
-            next_thrift_port = 9090
             def __init__(self, *opts, **kwargs):
                 global next_thrift_port
                 kwargs.update(switch_args)
-                kwargs['thrift_port'] = ConfiguredP4Switch.next_thrift_port
-                ConfiguredP4Switch.next_thrift_port += 1
+                kwargs['thrift_port'] = next_thrift_port
+                next_thrift_port += 1
                 P4Switch.__init__(self, *opts, **kwargs)
 
             def describe(self):
